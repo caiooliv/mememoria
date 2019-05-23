@@ -134,9 +134,10 @@ function fat(valor) {
       return 1;
      
     } else {
-        
-        valor = valor * fat(valor - 1)
-    }
-
-    return valor
+      var resultado = 1;
+      for(x=valor;x>1;x--) {
+        resultado = resultado * x;
+      }
+      return resultado;
+    } 
 }
