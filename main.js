@@ -1,9 +1,8 @@
 /**
  * Retorna lista na ordem aleatória.
  */
-
- copyList([1,2,3]);
-
+var jogador1 = 0;
+var jogador2 = 0; 
 
 function shuffle(lst){
     let res = [],
@@ -56,7 +55,9 @@ $(() => {
  * Controle clique nas cartas
  */
 let selecionada = null;
- 
+let jogador = true;
+
+
 $(() => {
     $(".cartao")
         .on("click", ev => {
@@ -75,6 +76,8 @@ $(() => {
                      $(clicada).attr('src')) {
                 $(selecionada).hide(500);
                 $(clicada).hide(500);
+                placar(jogador)
+                jogador = !jogador
                 selecionada = null;
             }
             
@@ -84,6 +87,7 @@ $(() => {
                     $(clicada).toggleClass('virado');
                     $(selecionada).toggleClass('virado');
                     selecionada = null;
+                    jogador = !jogador
                 }, 1000);
             }
             
@@ -106,4 +110,16 @@ function sample(lst,n){
         res.push(valorAleatorio);
     }
     return res;
+}
+
+function placar(jogador){
+    if(!jogador){
+        jogador2++;
+    }else{
+        jogador1++;
+    }    
+
+    if(jogador1 + jogador2 === 6){
+        alert('jogador1:'+jogador1+"\nJogador2:"+jogador2);
+    }
 }
