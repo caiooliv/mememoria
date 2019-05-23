@@ -103,12 +103,13 @@ function copyList(lst){
 
 function sample(lst,n){
     let res = [];
-    let valor = Math.floor(Math.random() * (n - 0)) + 0;
-    console.log(valor);
+    let valor = n
     for(let i = 0;i < valor;i++){
         valorAleatorio = lst[Math.floor(Math.random() * (n - 0)) + 0]
         res.push(valorAleatorio);
-    }
+        lst.splice(lst.indexOf(valorAleatorio),1)
+        n = n - 1;   
+    }  
     return res;
 }
 
