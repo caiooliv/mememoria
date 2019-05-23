@@ -124,3 +124,19 @@ function placar(jogador){
         alert('jogador1:'+jogador1+"\nJogador2:"+jogador2);
     }
 }
+
+function fat(valor) {
+    
+    if(valor<0) {
+      return 'Valor deve ser maior ou igual a zero';
+    
+    } else if ( (valor == 0) || (valor == 1) ) {
+      return 1;
+     
+    } else {
+        
+        valor = valor * fat(valor - 1)
+    }
+
+    return valor
+}
